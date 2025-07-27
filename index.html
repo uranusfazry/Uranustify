@@ -71,10 +71,18 @@
         }
         
         /* Kontainer utama watermark */
-        #futuristic-watermark {
+        #futuristic-watermark-container {
             position: fixed;
             bottom: 25px;
             left: 25px;
+            z-index: 9999;
+            opacity: 0;
+            animation: slideUpFadeIn 1s ease-out 0.5s forwards;
+            display: block;
+            text-decoration: none;
+        }
+
+        #futuristic-watermark {
             padding: 8px 15px;
             min-width: 212px;
             background: var(--background-color);
@@ -88,16 +96,13 @@
             box-shadow: 0 0 15px rgba(var(--glow-color), 0.15),
                         0 0 30px rgba(var(--glow-color), 0.1),
                         inset 0 0 10px rgba(var(--glow-color), 0.1);
-            z-index: 9999;
             cursor: pointer;
             user-select: none;
             overflow: hidden;
-            opacity: 0;
-            animation: slideUpFadeIn 1s ease-out 0.5s forwards;
             transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         
-        #futuristic-watermark:hover {
+        #futuristic-watermark-container:hover #futuristic-watermark {
             transform: translateY(-5px) scale(1.03);
             border-color: rgba(127, 255, 212, 0.8);
             box-shadow: 0 0 25px rgba(var(--glow-color), 0.4),
@@ -192,7 +197,7 @@
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <img src="https://i.postimg.cc/pdw1MhY7/quality-restoration-20250726142556888.png" alt="Logo Uranustify - Planet Uranus dengan efek neon dan gelombang suara" class="h-10 w-10 rounded-full">
+                    <img src="https://i.ibb.co/mVY0VBP5/quality-restoration-20250727152603314.png" alt="Logo Uranustify - Planet Uranus dengan efek neon dan gelombang suara" class="h-10 w-10 rounded-full">
                     <span class="text-2xl font-bold gradient-text">Uranustify</span>
                 </a>
                 
@@ -204,7 +209,7 @@
                     <a href="#download" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition">Beli Sekarang</a>
                 </div>
                 
-                <button id="menu-button" class="md:hidden text-white z-50">
+                <button id="menu-button" class="md:hidden text-white z-50" aria-label="Buka menu">
                     <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -224,333 +229,337 @@
         </nav>
     </header>
 
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-transparent z-0"></div>
-        <div class="container mx-auto px-6 py-24 md:py-32 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                <span class="gradient-text">Uranustify</span> <br> Musik Tanpa Batas
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
-                Nikmati jutaan lagu favoritmu tanpa iklan, tanpa akun, dan gratis seumur hidup. Pengalaman musik terbaik di semua perangkat Anda.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#download" class="cta-gradient py-4 px-8 text-lg font-semibold rounded-full text-white hover:opacity-90 transition duration-300 transform hover:scale-105">
-                    Coba Sekarang
-                </a>
-                <a href="#perbandingan" class="border border-gray-700 py-4 px-8 text-lg font-semibold rounded-full text-white hover:bg-gray-800 transition duration-300">
-                    Bandingkan Fitur
-                </a>
-            </div>
-        </div>
-        
-        <div class="container mx-auto px-6 pb-16 relative z-10">
-            <img src="https://i.postimg.cc/L8q0V17Q/quality-restoration-20250726144805042.jpg" alt="Mockup tampilan Uranustify di berbagai perangkat - smartphone, tablet, dan laptop dengan tema gelap dan aksen biru" class="rounded-xl shadow-2xl neon-border mx-auto">
-        </div>
-    </section>
-
-    <section id="fitur" class="py-20 bg-gradient-to-b from-gray-900/50 via-transparent to-transparent">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Mengapa Memilih <span class="gradient-text">Uranustify?</span></h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Semua yang Anda butuhkan untuk pengalaman musik terbaik dalam satu aplikasi</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Tanpa Akun</h3>
-                    <p class="text-gray-400">Mulai langsung tanpa registrasi atau login. Privasi Anda tetap terjaga tanpa perlu memberikan data pribadi.</p>
-                </div>
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Tanpa Iklan</h3>
-                    <p class="text-gray-400">Nikmati musik tanpa gangguan iklan yang mengganggu. Lagu favorit Anda tanpa jeda.</p>
-                </div>
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Tanpa Instalasi</h3>
-                    <p class="text-gray-400">Akses langsung dari browser Anda tanpa perlu mengunduh atau menginstal aplikasi apa pun.</p>
-                </div>
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Multi-Device</h3>
-                    <p class="text-gray-400">Dari smartphone, tablet, hingga PC. Bahkan bisa dipakai di jam pintar! Synchronisasi playlist otomatis.</p>
-                </div>
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Gratis Selamanya</h3>
-                    <p class="text-gray-400">Tidak ada biaya berlangganan. Semua fitur premium tersedia untuk Anda tanpa batas waktu.</p>
-                </div>
-                
-                <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">100+ Juta Lagu</h3>
-                    <p class="text-gray-400">Koleksi lengkap dari semua genre musik, termasuk konten eksklusif dan rilisan terbaru langsung dari artis.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="penjelasan" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">❗️Masalah Umum di Aplikasi Musik Saat Ini</h2>
-            </div>
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">🔐 Harus Daftar dan Login</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Kebanyakan platform seperti Spotify mewajibkan pengguna untuk membuat akun, login, bahkan verifikasi email hanya untuk bisa mendengarkan musik.</p>
-                    <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
-                        Hasilnya? Ribet, menyita waktu, dan tidak semua orang nyaman berbagi data pribadi.
-                    </blockquote>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">💰 Ada Biaya Langganan</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Layanan premium harus bayar bulanan atau tahunan. Kalau tidak bayar, lagu dipotong iklan atau dibatasi fitur.</p>
-                    <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
-                        Hasilnya? Musik yang harusnya jadi hiburan malah bikin stres karena pengeluaran tambahan.
-                    </blockquote>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">📱 Tidak Semua Perangkat Lancar</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Beberapa aplikasi berat dan tidak cocok untuk perangkat spek rendah. Bahkan sering crash di HP kentang atau tidak optimal di iPhone versi lama.</p>
-                    <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
-                        Hasilnya? Pengalaman mendengarkan musik jadi terganggu, padahal niatnya mau santai.
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">✅ Solusi dari <span class="gradient-text">Uranustify</span></h2>
-            </div>
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-                 <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">🎉 Tanpa Akun – Langsung Pakai</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Tidak perlu daftar, tidak perlu login. Buka Uranustify, langsung putar musik favoritmu.</p>
-                    <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
-                        Simpel, cepat, dan tanpa batas.
-                    </blockquote>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">🆓 Gratis Selamanya</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Tidak ada biaya berlangganan, tidak ada versi premium.</p>
-                    <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
-                        Semua fitur bisa dipakai seumur hidup.
-                    </blockquote>
-                </div>
-                <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
-                    <h3 class="font-bold text-2xl mb-4">📱 Ringan & Kompatibel</h3>
-                    <p class="text-gray-400 mb-4 flex-grow">Uranustify didesain untuk berjalan lancar di semua jenis perangkat, mulai dari HP kentang sampai iPhone terbaru.</p>
-                    <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
-                        Tidak perlu spesifikasi tinggi untuk menikmati musik tanpa batas.
-                    </blockquote>
-                </div>
-            </div>
-            
-            <div class="text-center bg-gray-900/50 p-10 rounded-xl neon-border">
-                <h3 class="text-2xl md:text-4xl font-bold mb-4">🚀 Coba Sekarang</h3>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                    Uranustify adalah jawaban untuk kamu yang ingin pengalaman mendengarkan musik yang simpel, bebas, dan menyenangkan.
+    <main>
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-transparent z-0"></div>
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span class="gradient-text">Uranustify</span> <br> Musik Tanpa Batas
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    Nikmati jutaan lagu favoritmu tanpa iklan, tanpa akun, dan gratis seumur hidup. Pengalaman musik terbaik di semua perangkat Anda.
                 </p>
-                <a href="#download" class="cta-gradient py-4 px-10 text-xl font-semibold rounded-full text-white hover:opacity-90 transition duration-300 transform hover:scale-105 inline-block">
-                    🎧 Mulai dengan Uranustify
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="modes" class="py-20 bg-gray-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Dengarkan Kapan Saja, Di Mana Saja</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Pilih mode yang sesuai dengan kebutuhanmu, online atau offline.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="mode-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <img src="https://i.postimg.cc/1zTgq42Q/quality-restoration-20250726140900792.jpg" alt="Contoh tampilan Uranustify dalam mode online, menampilkan daftar lagu yang sedang tren" class="rounded-lg shadow-lg mb-6 w-full">
-                    <h3 class="text-2xl font-bold mb-3 gradient-text">Mode Online</h3>
-                    <p class="text-gray-400">Akses 100+ juta lagu secara instan. Temukan artis baru, playlist pilihan, dan nikmati streaming kualitas tinggi dengan koneksi internet.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#download" class="cta-gradient py-4 px-8 text-lg font-semibold rounded-full text-white hover:opacity-90 transition duration-300 transform hover:scale-105">
+                        Coba Sekarang
+                    </a>
+                    <a href="#perbandingan" class="border border-gray-700 py-4 px-8 text-lg font-semibold rounded-full text-white hover:bg-gray-800 transition duration-300">
+                        Bandingkan Fitur
+                    </a>
                 </div>
-                <div class="mode-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
-                    <img src="https://i.postimg.cc/26bZcnhy/quality-restoration-20250726141059621.jpg" alt="Contoh tampilan Uranustify dalam mode offline, menampilkan lagu yang sudah diunduh" class="rounded-lg shadow-lg mb-6 w-full">
-                    <h3 class="text-2xl font-bold mb-3 gradient-text">Mode Offline</h3>
-                    <p class="text-gray-400">Unduh lagu atau playlist favoritmu. Dengarkan di pesawat, saat bepergian, atau di mana pun tanpa perlu khawatir kuota atau sinyal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="perbandingan" class="py-20 bg-black">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Uranustify vs <span class="text-green-500">Spotify</span></h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Lihat perbandingan fitur lengkap antara Uranustify dan platform musik lainnya</p>
             </div>
             
-            <div class="overflow-x-auto">
-                <table class="w-full text-left rounded-xl overflow-hidden neon-border">
-                    <thead class="bg-gray-800/70">
-                        <tr>
-                            <th class="px-6 py-4 text-lg font-semibold text-left">Fitur</th>
-                            <th class="px-6 py-4 text-lg font-semibold text-center">Uranustify</th>
-                            <th class="px-6 py-4 text-lg font-semibold text-center">Spotify</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-700">
-                        
-                        <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Biaya</td>
-                            <td class="px-6 py-4 text-center text-blue-400">Gratis Selamanya</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Premium mulai $9.99/bln</td>
-                        </tr>
-                        
-                        <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Iklan</td>
-                            <td class="px-6 py-4 text-center text-blue-400">Tanpa Iklan</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Ada di versi gratis</td>
-                        </tr>
-                        
-                        <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Akun</td>
-                            <td class="px-6 py-4 text-center text-blue-400">Tanpa Registrasi</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Wajib Registrasi</td>
-                        </tr>
-                        
-                        <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Mode Dengar</td>
-                            <td class="px-6 py-4 text-center text-blue-400">Online & Offline</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Online (Offline utk Premium)</td>
-                        </tr>
-                        
-                        <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Rekomendasi</td>
-                            <td class="px-6 py-4 text-center text-blue-400">AI Canggih</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Basic</td>
-                        </tr>
-                        
-                        <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
-                            <td class="px-6 py-4">Device Sync</td>
-                            <td class="px-6 py-4 text-center text-blue-400">Semua Perangkat</td>
-                            <td class="px-6 py-4 text-center text-gray-400">Terbatas</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="container mx-auto px-6 pb-16 relative z-10">
+                <!-- Image added back as requested -->
+                <img src="https://i.ibb.co/ZzyPjhbN/quality-restoration-20250726144805042.jpg" alt="Mockup tampilan Uranustify di berbagai perangkat - smartphone, tablet, dan laptop dengan tema gelap dan aksen biru" class="rounded-xl shadow-2xl neon-border mx-auto mb-8">
+                <img src="https://i.ibb.co/v4C1gwvb/quality-restoration-20250727152458669.jpg" alt="Mockup tampilan Uranustify di berbagai perangkat - smartphone, tablet, dan laptop dengan tema gelap dan aksen biru" class="rounded-xl shadow-2xl neon-border mx-auto">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="testimoni" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Apa Kata Pengguna Kami?</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Dengarkan langsung dari komunitas pengguna Uranustify yang puas</p>
+        <section id="fitur" class="py-20 bg-gradient-to-b from-gray-900/50 via-transparent to-transparent">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Mengapa Memilih <span class="gradient-text">Uranustify?</span></h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">Semua yang Anda butuhkan untuk pengalaman musik terbaik dalam satu aplikasi</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Tanpa Akun</h3>
+                        <p class="text-gray-400">Mulai langsung tanpa registrasi atau login. Privasi Anda tetap terjaga tanpa perlu memberikan data pribadi.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Tanpa Iklan</h3>
+                        <p class="text-gray-400">Nikmati musik tanpa gangguan iklan yang mengganggu. Lagu favorit Anda tanpa jeda.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Tanpa Instalasi</h3>
+                        <p class="text-gray-400">Akses langsung dari browser Anda tanpa perlu mengunduh atau menginstal aplikasi apa pun.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Multi-Device</h3>
+                        <p class="text-gray-400">Dari smartphone, tablet, hingga PC. Bahkan bisa dipakai di jam pintar! Synchronisasi playlist otomatis.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Gratis Selamanya</h3>
+                        <p class="text-gray-400">Tidak ada biaya berlangganan. Semua fitur premium tersedia untuk Anda tanpa batas waktu.</p>
+                    </div>
+                    
+                    <div class="feature-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">100+ Juta Lagu</h3>
+                        <p class="text-gray-400">Koleksi lengkap dari semua genre musik, termasuk konten eksklusif dan rilisan terbaru langsung dari artis.</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="testimonial-card rounded-xl p-8 neon-border">
-                    <div class="flex items-center mb-6">
-                        <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=DA" alt="Foto pengguna Dinda Ayu" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Dinda Ayu</h4>
-                            <p class="text-gray-400 text-sm">Pengguna sejak 2024</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Saya benar-benar terkejut dengan Uranustify! Aplikasinya kecil tapi sangat powerful. Tidak perlu login, langsung bisa mainkan lagu favorit tanpa gangguan iklan. Cocok banget buat sehari-hari!"</p>
-                    <div class="flex mt-4">
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card rounded-xl p-8 neon-border">
-                    <div class="flex items-center mb-6">
-                        <img src="https://placehold.co/80x80/3B82F6/FFFFFF?text=RM" alt="Foto pengguna Rizky Maulana" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Rizky Maulana</h4>
-                            <p class="text-gray-400 text-sm">Musisi Indie</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Sebagai musisi indie, saya sangat menghargai bagaimana Uranustify mendukung artis lokal seperti saya. Platformnya mudah digunakan oleh pendengar dan membayar royalty lebih baik daripada platform besar!"</p>
-                    <div class="flex mt-4">
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card rounded-xl p-8 neon-border">
-                    <div class="flex items-center mb-6">
-                        <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=NP" alt="Foto pengguna Nadia Putri" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Nadia Putri</h4>
-                            <p class="text-gray-400 text-sm">Pelajar</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"UI-nya keren banget! Gampang dipakai tapi tetep aesthetic. Hemat kuota pula karena ga loading berat kaya aplikasi musik lain. Sekolah bawaannya enjoy banget!"</p>
-                    <div class="flex mt-4">
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="download" class="py-24 bg-gradient-to-r from-blue-900/20 via-gray-900/50 to-purple-900/20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Siap Mengubah Pengalaman Musik Anda?</h2>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-                Dapatkan akses penuh ke Uranustify sekarang dan nikmati musik tanpa batas di semua perangkat Anda.
-            </p>
-            
-            <div class="flex justify-center">
-                <a href="#" class="bg-purple-600 hover:bg-purple-700 py-4 px-8 text-lg font-semibold rounded-full text-white transition inline-flex items-center justify-center transform hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-14l-3 3m5 5l3 3m-8-4v.01M12 12h.01M12 6a6 6 0 110 12 6 6 0 010-12zm-4 6a4 4 0 118 0 4 4 0 01-8 0z" />
-                    </svg>
-                    Beli Uranustify sekarang dan nikmati musik tanpa batas
-                </a>
+        <section id="penjelasan" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">❗️Masalah Umum di Aplikasi Musik Saat Ini</h2>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">🔐 Harus Daftar dan Login</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Kebanyakan platform seperti Spotify mewajibkan pengguna untuk membuat akun, login, bahkan verifikasi email hanya untuk bisa mendengarkan musik.</p>
+                        <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
+                            Hasilnya? Ribet, menyita waktu, dan tidak semua orang nyaman berbagi data pribadi.
+                        </blockquote>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">💰 Ada Biaya Langganan</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Layanan premium harus bayar bulanan atau tahunan. Kalau tidak bayar, lagu dipotong iklan atau dibatasi fitur.</p>
+                        <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
+                            Hasilnya? Musik yang harusnya jadi hiburan malah bikin stres karena pengeluaran tambahan.
+                        </blockquote>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-red-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">📱 Tidak Semua Perangkat Lancar</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Beberapa aplikasi berat dan tidak cocok untuk perangkat spek rendah. Bahkan sering crash di HP kentang atau tidak optimal di iPhone versi lama.</p>
+                        <blockquote class="border-l-4 border-red-400 pl-4 italic text-red-300 bg-red-900/20 p-3 rounded-r-lg">
+                            Hasilnya? Pengalaman mendengarkan musik jadi terganggu, padahal niatnya mau santai.
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">✅ Solusi dari <span class="gradient-text">Uranustify</span></h2>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+                     <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">🎉 Tanpa Akun – Langsung Pakai</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Tidak perlu daftar, tidak perlu login. Buka Uranustify, langsung putar musik favoritmu.</p>
+                        <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
+                            Simpel, cepat, dan tanpa batas.
+                        </blockquote>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">🆓 Gratis Selamanya</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Tidak ada biaya berlangganan, tidak ada versi premium.</p>
+                        <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
+                            Semua fitur bisa dipakai seumur hidup.
+                        </blockquote>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-xl border border-blue-500/30 flex flex-col">
+                        <h3 class="font-bold text-2xl mb-4">📱 Ringan & Kompatibel</h3>
+                        <p class="text-gray-400 mb-4 flex-grow">Uranustify didesain untuk berjalan lancar di semua jenis perangkat, mulai dari HP kentang sampai iPhone terbaru.</p>
+                        <blockquote class="border-l-4 border-blue-400 pl-4 italic text-blue-300 bg-blue-900/20 p-3 rounded-r-lg">
+                            Tidak perlu spesifikasi tinggi untuk menikmati musik tanpa batas.
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="text-center bg-gray-900/50 p-10 rounded-xl neon-border">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-4">🚀 Coba Sekarang</h3>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                        Uranustify adalah jawaban untuk kamu yang ingin pengalaman mendengarkan musik yang simpel, bebas, dan menyenangkan.
+                    </p>
+                    <a href="#download" class="cta-gradient py-4 px-10 text-xl font-semibold rounded-full text-white hover:opacity-90 transition duration-300 transform hover:scale-105 inline-block">
+                        🎧 Mulai dengan Uranustify
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="modes" class="py-20 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Dengarkan Kapan Saja, Di Mana Saja</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">Pilih mode yang sesuai dengan kebutuhanmu, online atau offline.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="mode-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <img src="https://i.ibb.co/vCcchkjJ/quality-restoration-20250726140900792.jpg" alt="Contoh tampilan Uranustify dalam mode online, menampilkan daftar lagu yang sedang tren" class="rounded-lg shadow-lg mb-6 w-full">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">Mode Online</h3>
+                        <p class="text-gray-400">Akses 100+ juta lagu secara instan. Temukan artis baru, playlist pilihan, dan nikmati streaming kualitas tinggi dengan koneksi internet.</p>
+                    </div>
+                    <div class="mode-card bg-gray-900 rounded-xl p-8 transition duration-500 hover:neon-border">
+                        <img src="https://i.ibb.co/dsgCDWNf/quality-restoration-20250726141059621.jpg" alt="Contoh tampilan Uranustify dalam mode offline, menampilkan lagu yang sudah diunduh" class="rounded-lg shadow-lg mb-6 w-full">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">Mode Offline</h3>
+                        <p class="text-gray-400">Unduh lagu atau playlist favoritmu. Dengarkan di pesawat, saat bepergian, atau di mana pun tanpa perlu khawatir kuota atau sinyal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="perbandingan" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Uranustify vs <span class="text-green-500">Spotify</span></h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">Lihat perbandingan fitur lengkap antara Uranustify dan platform musik lainnya</p>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left rounded-xl overflow-hidden neon-border">
+                        <thead class="bg-gray-800/70">
+                            <tr>
+                                <th class="px-6 py-4 text-lg font-semibold text-left">Fitur</th>
+                                <th class="px-6 py-4 text-lg font-semibold text-center">Uranustify</th>
+                                <th class="px-6 py-4 text-lg font-semibold text-center">Spotify</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            
+                            <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Biaya</td>
+                                <td class="px-6 py-4 text-center text-blue-400">Gratis Selamanya</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Premium mulai $9.99/bln</td>
+                            </tr>
+                            
+                            <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Iklan</td>
+                                <td class="px-6 py-4 text-center text-blue-400">Tanpa Iklan</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Ada di versi gratis</td>
+                            </tr>
+                            
+                            <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Akun</td>
+                                <td class="px-6 py-4 text-center text-blue-400">Tanpa Registrasi</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Wajib Registrasi</td>
+                            </tr>
+                            
+                            <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Mode Dengar</td>
+                                <td class="px-6 py-4 text-center text-blue-400">Online & Offline</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Online (Offline utk Premium)</td>
+                            </tr>
+                            
+                            <tr class="bg-gray-800/30 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Rekomendasi</td>
+                                <td class="px-6 py-4 text-center text-blue-400">AI Canggih</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Basic</td>
+                            </tr>
+                            
+                            <tr class="bg-gray-800/10 hover:bg-gray-800/50 transition">
+                                <td class="px-6 py-4">Device Sync</td>
+                                <td class="px-6 py-4 text-center text-blue-400">Semua Perangkat</td>
+                                <td class="px-6 py-4 text-center text-gray-400">Terbatas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Apa Kata Pengguna Kami?</h2>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto">Dengarkan langsung dari komunitas pengguna Uranustify yang puas</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="testimonial-card rounded-xl p-8 neon-border">
+                        <div class="flex items-center mb-6">
+                            <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=DA" alt="Foto pengguna Dinda Ayu" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Dinda Ayu</h4>
+                                <p class="text-gray-400 text-sm">Pengguna sejak 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Saya benar-benar terkejut dengan Uranustify! Aplikasinya kecil tapi sangat powerful. Tidak perlu login, langsung bisa mainkan lagu favorit tanpa gangguan iklan. Cocok banget buat sehari-hari!"</p>
+                        <div class="flex mt-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card rounded-xl p-8 neon-border">
+                        <div class="flex items-center mb-6">
+                            <img src="https://placehold.co/80x80/3B82F6/FFFFFF?text=RM" alt="Foto pengguna Rizky Maulana" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Rizky Maulana</h4>
+                                <p class="text-gray-400 text-sm">Musisi Indie</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Sebagai musisi indie, saya sangat menghargai bagaimana Uranustify mendukung artis lokal seperti saya. Platformnya mudah digunakan oleh pendengar dan membayar royalty lebih baik daripada platform besar!"</p>
+                        <div class="flex mt-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card rounded-xl p-8 neon-border">
+                        <div class="flex items-center mb-6">
+                            <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=NP" alt="Foto pengguna Nadia Putri" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Nadia Putri</h4>
+                                <p class="text-gray-400 text-sm">Pelajar</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"UI-nya keren banget! Gampang dipakai tapi tetep aesthetic. Hemat kuota pula karena ga loading berat kaya aplikasi musik lain. Sekolah bawaannya enjoy banget!"</p>
+                        <div class="flex mt-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="py-24 bg-gradient-to-r from-blue-900/20 via-gray-900/50 to-purple-900/20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Siap Mengubah Pengalaman Musik Anda?</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                    Dapatkan akses penuh ke Uranustify sekarang dan nikmati musik tanpa batas di semua perangkat Anda.
+                </p>
+                
+                <div class="flex justify-center">
+                    <a href="#" class="bg-purple-600 hover:bg-purple-700 py-4 px-8 text-lg font-semibold rounded-full text-white transition inline-flex items-center justify-center transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-14l-3 3m5 5l3 3m-8-4v.01M12 12h.01M12 6a6 6 0 110 12 6 6 0 010-12zm-4 6a4 4 0 118 0 4 4 0 01-8 0z" />
+                        </svg>
+                        Beli Uranustify sekarang dan nikmati musik tanpa batas
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-gray-900/80 border-t border-gray-800">
         <div class="container mx-auto px-6 py-12">
@@ -558,20 +567,21 @@
                 
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-2 mb-4">
-                        <img src="https://i.postimg.cc/pdw1MhY7/quality-restoration-20250726142556888.png" alt="Logo kecil Uranustify" class="h-8 w-8 rounded-full">
+                        <!-- Corrected footer logo to match header logo -->
+                        <img src="https://i.ibb.co/mVY0VBP5/quality-restoration-20250727152603314.png" alt="Logo kecil Uranustify" class="h-8 w-8 rounded-full">
                         <span class="text-xl font-bold gradient-text">Uranustify</span>
                     </div>
                     <p class="text-gray-400 mb-4">
                         Platform musik revolusioner yang membebaskan Anda menikmati lagu tanpa batas. Gratis selamanya.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Facebook">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Twitter">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-600 transition">
+                        <a href="#" class="text-gray-400 hover:text-purple-600 transition" aria-label="Instagram">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
                         </a>
                     </div>
@@ -604,6 +614,27 @@
         </div>
     </footer>
 
+    <!-- The watermark is now a clickable link -->
+    <a id="futuristic-watermark-container" href="https://www.youtube.com/@uranusfazry" target="_blank" rel="noopener noreferrer" title="Visit URANUSFAZRY on YouTube">
+        <div id="futuristic-watermark">
+            <canvas id="particle-canvas"></canvas>
+            <div class="f-content-wrapper">
+                <div id="f-main-content" class="f-content">
+                    <div class="f-logo-container">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 20 L80 20 L80 80 L20 80 Z" stroke-opacity="0.5"/>
+                            <path d="M50 5 L95 50 L50 95 L5 50 Z"/>
+                        </svg>
+                    </div>
+                    <span id="f-watermark-text">©URANUSFAZRY</span>
+                </div>
+                <div id="f-follow-content" class="f-content hidden">
+                    <span id="f-follow-message"></span>
+                </div>
+            </div>
+        </div>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // --- Mobile Menu Toggle ---
@@ -613,34 +644,35 @@
             const closeIcon = document.getElementById('menu-close-icon');
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            menuButton.addEventListener('click', () => {
+            const toggleMenu = () => {
                 mobileMenu.classList.toggle('hidden');
                 openIcon.classList.toggle('hidden');
                 closeIcon.classList.toggle('hidden');
-                document.body.classList.toggle('overflow-hidden');
-            });
+                // Prevent body scroll when menu is open
+                document.body.classList.toggle('overflow-hidden', !mobileMenu.classList.contains('hidden'));
+            };
+
+            menuButton.addEventListener('click', toggleMenu);
 
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    openIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
                 });
             });
 
+            // --- Smooth Scrolling for Anchor Links ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
                     
+                    // Ensure it's a valid ID selector
                     if (targetId && targetId.length > 1) {
-                        if (!this.classList.contains('mobile-link')) {
-                            e.preventDefault();
-                        }
-                        
                         const targetElement = document.querySelector(targetId);
                         
                         if (targetElement) {
+                            e.preventDefault(); // Prevent default jump
                             targetElement.scrollIntoView({
                                 behavior: 'smooth'
                             });
@@ -649,6 +681,7 @@
                 });
             });
 
+            // --- Set Current Year in Footer ---
             const yearSpan = document.getElementById('current-year');
             if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
@@ -656,136 +689,142 @@
         });
     </script>
     <script>
+      // --- Futuristic Watermark Script ---
       (function() {
-        function initializeWatermark() {
-            const watermarkHTML = `
-              <div id="futuristic-watermark" title="Design by ©URANUSFAZRY">
-                <canvas id="particle-canvas"></canvas>
-                <div class="f-content-wrapper">
-                  <div id="f-main-content" class="f-content">
-                    <div class="f-logo-container">
-                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M20 20 L80 20 L80 80 L20 80 Z" stroke-opacity="0.5"/>
-                          <path d="M50 5 L95 50 L50 95 L5 50 Z"/>
-                      </svg>
-                    </div>
-                    <span id="f-watermark-text">©URANUSFAZRY</span>
-                  </div>
-                  <div id="f-follow-content" class="f-content hidden">
-                      <span id="f-follow-message"></span>
-                  </div>
-                </div>
-              </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', watermarkHTML);
+          // Function to run after the DOM is fully loaded
+          function initializeWatermark() {
+              const watermarkContainer = document.getElementById('futuristic-watermark-container');
+              if (!watermarkContainer) return; // Exit if watermark element is not found
 
-            const watermarkEl = document.getElementById('futuristic-watermark');
-            const textEl = document.getElementById('f-watermark-text');
-            const logoEl = watermarkEl.querySelector('.f-logo-container');
-            const mainContentEl = document.getElementById('f-main-content');
-            const followContentEl = document.getElementById('f-follow-content');
-            const followMessageEl = document.getElementById('f-follow-message');
-            
-            let isAnimating = false;
-            let autoPlayInterval = null;
-            let currentSequence = 0;
-            const sequenceActions = ['scramble', 'logo', 'youtube', 'tiktok', 'reset'];
+              const watermarkEl = document.getElementById('futuristic-watermark');
+              const textEl = document.getElementById('f-watermark-text');
+              const logoEl = watermarkEl.querySelector('.f-logo-container');
+              const mainContentEl = document.getElementById('f-main-content');
+              const followContentEl = document.getElementById('f-follow-content');
+              const followMessageEl = document.getElementById('f-follow-message');
+              
+              let isAnimating = false;
+              let autoPlayInterval = null;
+              let currentSequence = 0;
+              const sequenceActions = ['scramble', 'logo', 'youtube', 'tiktok', 'reset'];
 
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            const resizeCanvas = () => { if (watermarkEl) { canvas.width = watermarkEl.offsetWidth; canvas.height = watermarkEl.offsetHeight; } };
-            class Particle {
-                constructor() { this.reset(); this.baseSpeedX = (Math.random() - 0.5) * 0.5; this.baseSpeedY = (Math.random() - 0.5) * 0.5; this.speedX = this.baseSpeedX; this.speedY = this.baseSpeedY; }
-                update() {
-                    this.x += this.speedX; this.y += this.speedY; this.opacity -= this.fadeSpeed;
-                    if (this.opacity <= 0 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.reset(); }
-                }
-                draw() {
-                    const style = getComputedStyle(watermarkEl);
-                    const hue = style.getPropertyValue('--particle-base-hue').trim();
-                    const lightness = parseFloat(style.getPropertyValue('--particle-base-lightness').trim());
-                    ctx.globalAlpha = this.opacity;
-                    ctx.fillStyle = `hsl(${hue}, 100%, ${lightness + this.opacity * 40}%)`;
-                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-                }
-                reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.opacity = Math.random() * 0.5 + 0.2; this.size = Math.random() * 1.5 + 0.5; this.fadeSpeed = Math.random() * 0.015 + 0.005; }
-            }
-            const animateParticles = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); ctx.globalAlpha = 1.0; requestAnimationFrame(animateParticles); };
-            
-            const textScramble = (el) => {
-                const originalText = "©URANUSFAZRY";
-                const chars = '!<>*#{}[]'; let frame = 0; isAnimating = true;
-                const interval = setInterval(() => {
-                    el.innerText = originalText.split('').map((char, i) => { const p = (frame - i * 2) / 15; if (p < 0) return ' '; if (p > 1) return char; return chars[Math.floor(Math.random() * chars.length)]; }).join('');
-                    if (frame >= originalText.length * 2 + 15) { clearInterval(interval); el.innerText = originalText; isAnimating = false; } frame++;
-                }, 30);
-            };
+              // --- Canvas Particle Animation ---
+              const canvas = document.getElementById('particle-canvas');
+              const ctx = canvas.getContext('2d');
+              let particles = [];
 
-            const typewriter = (el, text) => {
-                let i = 0; el.innerHTML = ""; isAnimating = true;
-                const interval = setInterval(() => {
-                    if (i < text.length) { el.innerHTML += text.charAt(i); i++; } 
-                    else { clearInterval(interval); isAnimating = false; }
-                }, 50);
-            };
+              const resizeCanvas = () => {
+                  if (watermarkEl) {
+                      canvas.width = watermarkEl.offsetWidth;
+                      canvas.height = watermarkEl.offsetHeight;
+                  }
+              };
 
-            const runAutoSequence = () => {
-                if (isAnimating) return;
-                const action = sequenceActions[currentSequence];
-                switch (action) {
-                    case 'scramble': textScramble(textEl); break;
-                    case 'logo':
-                        isAnimating = true;
-                        logoEl.classList.add('reacting');
-                        logoEl.addEventListener('animationend', () => { logoEl.classList.remove('reacting'); isAnimating = false; }, { once: true });
-                        break;
-                    case 'youtube':
-                        isAnimating = true;
-                        mainContentEl.classList.add('hidden');
-                        setTimeout(() => {
-                            followContentEl.classList.remove('hidden');
-                            typewriter(followMessageEl, "Follow uranusfazry YouTube");
-                        }, 400);
-                        break;
-                    case 'tiktok': 
-                        typewriter(followMessageEl, "Follow uranusfazry TikTok"); 
-                        break;
-                    case 'reset':
-                        isAnimating = true;
-                        followContentEl.classList.add('hidden');
-                        setTimeout(() => {
-                            mainContentEl.classList.remove('hidden');
-                            isAnimating = false;
-                        }, 400);
-                        break;
-                }
-                currentSequence = (currentSequence + 1) % sequenceActions.length;
-            };
+              class Particle {
+                  constructor() { this.reset(); this.baseSpeedX = (Math.random() - 0.5) * 0.5; this.baseSpeedY = (Math.random() - 0.5) * 0.5; this.speedX = this.baseSpeedX; this.speedY = this.baseSpeedY; }
+                  update() {
+                      this.x += this.speedX; this.y += this.speedY; this.opacity -= this.fadeSpeed;
+                      if (this.opacity <= 0 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.reset(); }
+                  }
+                  draw() {
+                      const style = getComputedStyle(watermarkEl);
+                      const hue = style.getPropertyValue('--particle-base-hue').trim();
+                      const lightness = parseFloat(style.getPropertyValue('--particle-base-lightness').trim());
+                      ctx.globalAlpha = this.opacity;
+                      ctx.fillStyle = `hsl(${hue}, 100%, ${lightness + this.opacity * 40}%)`;
+                      ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+                  }
+                  reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.opacity = Math.random() * 0.5 + 0.2; this.size = Math.random() * 1.5 + 0.5; this.fadeSpeed = Math.random() * 0.015 + 0.005; }
+              }
 
-            const startAutoPlay = () => {
-                if (autoPlayInterval) clearInterval(autoPlayInterval);
-                runAutoSequence();
-                autoPlayInterval = setInterval(runAutoSequence, 3500);
-            };
+              const animateParticles = () => {
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                  particles.forEach(p => { p.update(); p.draw(); });
+                  ctx.globalAlpha = 1.0;
+                  requestAnimationFrame(animateParticles);
+              };
+              
+              // --- Text & Content Animations ---
+              const textScramble = (el) => {
+                  const originalText = "©URANUSFAZRY";
+                  const chars = '!<>*#{}[]'; let frame = 0; isAnimating = true;
+                  const interval = setInterval(() => {
+                      el.innerText = originalText.split('').map((char, i) => { const p = (frame - i * 2) / 15; if (p < 0) return ' '; if (p > 1) return char; return chars[Math.floor(Math.random() * chars.length)]; }).join('');
+                      if (frame >= originalText.length * 2 + 15) { clearInterval(interval); el.innerText = originalText; isAnimating = false; } frame++;
+                  }, 30);
+              };
 
-            watermarkEl.addEventListener('click', () => { watermarkEl.classList.toggle('light-mode'); });
-            
-            const init = () => {
-                resizeCanvas();
-                for (let i = 0; i < 40; i++) particles.push(new Particle());
-                animateParticles();
-                window.addEventListener('resize', resizeCanvas);
-                startAutoPlay();
-            };
-            init();
-        }
+              const typewriter = (el, text) => {
+                  let i = 0; el.innerHTML = ""; isAnimating = true;
+                  const interval = setInterval(() => {
+                      if (i < text.length) { el.innerHTML += text.charAt(i); i++; } 
+                      else { clearInterval(interval); isAnimating = false; }
+                  }, 50);
+              };
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeWatermark);
-        } else {
-            initializeWatermark();
-        }
+              // --- Animation Sequence Controller ---
+              const runAutoSequence = () => {
+                  if (isAnimating) return;
+                  const action = sequenceActions[currentSequence];
+                  switch (action) {
+                      case 'scramble': textScramble(textEl); break;
+                      case 'logo':
+                          isAnimating = true;
+                          logoEl.classList.add('reacting');
+                          logoEl.addEventListener('animationend', () => { logoEl.classList.remove('reacting'); isAnimating = false; }, { once: true });
+                          break;
+                      case 'youtube':
+                          isAnimating = true;
+                          mainContentEl.classList.add('hidden');
+                          setTimeout(() => {
+                              followContentEl.classList.remove('hidden');
+                              typewriter(followMessageEl, "Follow on YouTube");
+                          }, 400);
+                          break;
+                      case 'tiktok': 
+                          typewriter(followMessageEl, "Follow on TikTok"); 
+                          break;
+                      case 'reset':
+                          isAnimating = true;
+                          followContentEl.classList.add('hidden');
+                          setTimeout(() => {
+                              mainContentEl.classList.remove('hidden');
+                              isAnimating = false;
+                          }, 400);
+                          break;
+                  }
+                  currentSequence = (currentSequence + 1) % sequenceActions.length;
+              };
+
+              const startAutoPlay = () => {
+                  if (autoPlayInterval) clearInterval(autoPlayInterval);
+                  runAutoSequence();
+                  autoPlayInterval = setInterval(runAutoSequence, 3500);
+              };
+              
+              // Add a click listener to toggle light/dark mode for demonstration
+              watermarkEl.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent link navigation on simple click
+                watermarkEl.classList.toggle('light-mode'); 
+              });
+              
+              // --- Initialization ---
+              const init = () => {
+                  resizeCanvas();
+                  for (let i = 0; i < 40; i++) particles.push(new Particle());
+                  animateParticles();
+                  window.addEventListener('resize', resizeCanvas);
+                  startAutoPlay();
+              };
+              init();
+          }
+
+          // Ensure the script runs after the DOM is ready
+          if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initializeWatermark);
+          } else {
+              initializeWatermark();
+          }
       })();
     </script>
 </body>
