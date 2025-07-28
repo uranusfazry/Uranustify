@@ -197,7 +197,7 @@
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <img src="https://i.ibb.co/mVY0VBP5/quality-restoration-20250727152603314.png" alt="Logo Uranustify - Planet Uranus dengan efek neon dan gelombang suara" class="h-10 w-10 rounded-full">
+                    <img src="https://iili.io/FvWomQt.md.png" alt="Logo Uranustify - Planet Uranus dengan efek neon dan gelombang suara" class="h-10 w-10 rounded-full">
                     <span class="text-2xl font-bold gradient-text">Uranustify</span>
                 </a>
                 
@@ -498,7 +498,7 @@
                     
                     <div class="testimonial-card rounded-xl p-8 neon-border">
                         <div class="flex items-center mb-6">
-                            <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=DA" alt="Foto pengguna Dinda Ayu" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://i.ibb.co/6g4g7G2/dinda-ayu.jpg" alt="Foto pengguna Dinda Ayu" class="w-12 h-12 rounded-full mr-4 object-cover">
                             <div>
                                 <h4 class="font-bold">Dinda Ayu</h4>
                                 <p class="text-gray-400 text-sm">Pengguna sejak 2024</p>
@@ -516,7 +516,7 @@
                     
                     <div class="testimonial-card rounded-xl p-8 neon-border">
                         <div class="flex items-center mb-6">
-                            <img src="https://placehold.co/80x80/3B82F6/FFFFFF?text=RM" alt="Foto pengguna Rizky Maulana" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://i.ibb.co/C64K7Mv/rizky-maulana.jpg" alt="Foto pengguna Rizky Maulana" class="w-12 h-12 rounded-full mr-4 object-cover">
                             <div>
                                 <h4 class="font-bold">Rizky Maulana</h4>
                                 <p class="text-gray-400 text-sm">Musisi Indie</p>
@@ -534,7 +534,7 @@
                     
                     <div class="testimonial-card rounded-xl p-8 neon-border">
                         <div class="flex items-center mb-6">
-                            <img src="https://placehold.co/80x80/9333EA/FFFFFF?text=NP" alt="Foto pengguna Nadia Putri" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://i.ibb.co/k3yT2w5/nadia-putri.jpg" alt="Foto pengguna Nadia Putri" class="w-12 h-12 rounded-full mr-4 object-cover">
                             <div>
                                 <h4 class="font-bold">Nadia Putri</h4>
                                 <p class="text-gray-400 text-sm">Pelajar</p>
@@ -700,143 +700,143 @@
         });
     </script>
     <script>
-      // --- Futuristic Watermark Script ---
-      (function() {
-          // Function to run after the DOM is fully loaded
-          function initializeWatermark() {
-              const watermarkContainer = document.getElementById('futuristic-watermark-container');
-              if (!watermarkContainer) return; // Exit if watermark element is not found
+     // --- Futuristic Watermark Script ---
+     (function() {
+         // Function to run after the DOM is fully loaded
+         function initializeWatermark() {
+             const watermarkContainer = document.getElementById('futuristic-watermark-container');
+             if (!watermarkContainer) return; // Exit if watermark element is not found
 
-              const watermarkEl = document.getElementById('futuristic-watermark');
-              const textEl = document.getElementById('f-watermark-text');
-              const logoEl = watermarkEl.querySelector('.f-logo-container');
-              const mainContentEl = document.getElementById('f-main-content');
-              const followContentEl = document.getElementById('f-follow-content');
-              const followMessageEl = document.getElementById('f-follow-message');
-              
-              let isAnimating = false;
-              let autoPlayInterval = null;
-              let currentSequence = 0;
-              const sequenceActions = ['scramble', 'logo', 'youtube', 'tiktok', 'reset'];
+             const watermarkEl = document.getElementById('futuristic-watermark');
+             const textEl = document.getElementById('f-watermark-text');
+             const logoEl = watermarkEl.querySelector('.f-logo-container');
+             const mainContentEl = document.getElementById('f-main-content');
+             const followContentEl = document.getElementById('f-follow-content');
+             const followMessageEl = document.getElementById('f-follow-message');
+             
+             let isAnimating = false;
+             let autoPlayInterval = null;
+             let currentSequence = 0;
+             const sequenceActions = ['scramble', 'logo', 'youtube', 'tiktok', 'reset'];
 
-              // --- Canvas Particle Animation ---
-              const canvas = document.getElementById('particle-canvas');
-              const ctx = canvas.getContext('2d');
-              let particles = [];
+             // --- Canvas Particle Animation ---
+             const canvas = document.getElementById('particle-canvas');
+             const ctx = canvas.getContext('2d');
+             let particles = [];
 
-              const resizeCanvas = () => {
-                  if (watermarkEl) {
-                      canvas.width = watermarkEl.offsetWidth;
-                      canvas.height = watermarkEl.offsetHeight;
-                  }
-              };
+             const resizeCanvas = () => {
+                 if (watermarkEl) {
+                     canvas.width = watermarkEl.offsetWidth;
+                     canvas.height = watermarkEl.offsetHeight;
+                 }
+             };
 
-              class Particle {
-                  constructor() { this.reset(); this.baseSpeedX = (Math.random() - 0.5) * 0.5; this.baseSpeedY = (Math.random() - 0.5) * 0.5; this.speedX = this.baseSpeedX; this.speedY = this.baseSpeedY; }
-                  update() {
-                      this.x += this.speedX; this.y += this.speedY; this.opacity -= this.fadeSpeed;
-                      if (this.opacity <= 0 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.reset(); }
-                  }
-                  draw() {
-                      const style = getComputedStyle(watermarkEl);
-                      const hue = style.getPropertyValue('--particle-base-hue').trim();
-                      const lightness = parseFloat(style.getPropertyValue('--particle-base-lightness').trim());
-                      ctx.globalAlpha = this.opacity;
-                      ctx.fillStyle = `hsl(${hue}, 100%, ${lightness + this.opacity * 40}%)`;
-                      ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-                  }
-                  reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.opacity = Math.random() * 0.5 + 0.2; this.size = Math.random() * 1.5 + 0.5; this.fadeSpeed = Math.random() * 0.015 + 0.005; }
-              }
+             class Particle {
+                 constructor() { this.reset(); this.baseSpeedX = (Math.random() - 0.5) * 0.5; this.baseSpeedY = (Math.random() - 0.5) * 0.5; this.speedX = this.baseSpeedX; this.speedY = this.baseSpeedY; }
+                 update() {
+                     this.x += this.speedX; this.y += this.speedY; this.opacity -= this.fadeSpeed;
+                     if (this.opacity <= 0 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.reset(); }
+                 }
+                 draw() {
+                     const style = getComputedStyle(watermarkEl);
+                     const hue = style.getPropertyValue('--particle-base-hue').trim();
+                     const lightness = parseFloat(style.getPropertyValue('--particle-base-lightness').trim());
+                     ctx.globalAlpha = this.opacity;
+                     ctx.fillStyle = `hsl(${hue}, 100%, ${lightness + this.opacity * 40}%)`;
+                     ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+                 }
+                 reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.opacity = Math.random() * 0.5 + 0.2; this.size = Math.random() * 1.5 + 0.5; this.fadeSpeed = Math.random() * 0.015 + 0.005; }
+             }
 
-              const animateParticles = () => {
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                  particles.forEach(p => { p.update(); p.draw(); });
-                  ctx.globalAlpha = 1.0;
-                  requestAnimationFrame(animateParticles);
-              };
-              
-              // --- Text & Content Animations ---
-              const textScramble = (el) => {
-                  const originalText = "©URANUSFAZRY";
-                  const chars = '!<>*#{}[]'; let frame = 0; isAnimating = true;
-                  const interval = setInterval(() => {
-                      el.innerText = originalText.split('').map((char, i) => { const p = (frame - i * 2) / 15; if (p < 0) return ' '; if (p > 1) return char; return chars[Math.floor(Math.random() * chars.length)]; }).join('');
-                      if (frame >= originalText.length * 2 + 15) { clearInterval(interval); el.innerText = originalText; isAnimating = false; } frame++;
-                  }, 30);
-              };
+             const animateParticles = () => {
+                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                 particles.forEach(p => { p.update(); p.draw(); });
+                 ctx.globalAlpha = 1.0;
+                 requestAnimationFrame(animateParticles);
+             };
+             
+             // --- Text & Content Animations ---
+             const textScramble = (el) => {
+                 const originalText = "©URANUSFAZRY";
+                 const chars = '!<>*#{}[]'; let frame = 0; isAnimating = true;
+                 const interval = setInterval(() => {
+                     el.innerText = originalText.split('').map((char, i) => { const p = (frame - i * 2) / 15; if (p < 0) return ' '; if (p > 1) return char; return chars[Math.floor(Math.random() * chars.length)]; }).join('');
+                     if (frame >= originalText.length * 2 + 15) { clearInterval(interval); el.innerText = originalText; isAnimating = false; } frame++;
+                 }, 30);
+             };
 
-              const typewriter = (el, text) => {
-                  let i = 0; el.innerHTML = ""; isAnimating = true;
-                  const interval = setInterval(() => {
-                      if (i < text.length) { el.innerHTML += text.charAt(i); i++; } 
-                      else { clearInterval(interval); isAnimating = false; }
-                  }, 50);
-              };
+             const typewriter = (el, text) => {
+                 let i = 0; el.innerHTML = ""; isAnimating = true;
+                 const interval = setInterval(() => {
+                     if (i < text.length) { el.innerHTML += text.charAt(i); i++; } 
+                     else { clearInterval(interval); isAnimating = false; }
+                 }, 50);
+             };
 
-              // --- Animation Sequence Controller ---
-              const runAutoSequence = () => {
-                  if (isAnimating) return;
-                  const action = sequenceActions[currentSequence];
-                  switch (action) {
-                      case 'scramble': textScramble(textEl); break;
-                      case 'logo':
-                          isAnimating = true;
-                          logoEl.classList.add('reacting');
-                          logoEl.addEventListener('animationend', () => { logoEl.classList.remove('reacting'); isAnimating = false; }, { once: true });
-                          break;
-                      case 'youtube':
-                          isAnimating = true;
-                          mainContentEl.classList.add('hidden');
-                          setTimeout(() => {
-                              followContentEl.classList.remove('hidden');
-                              typewriter(followMessageEl, "Follow on YouTube");
-                          }, 400);
-                          break;
-                      case 'tiktok': 
-                          typewriter(followMessageEl, "Follow on TikTok"); 
-                          break;
-                      case 'reset':
-                          isAnimating = true;
-                          followContentEl.classList.add('hidden');
-                          setTimeout(() => {
-                              mainContentEl.classList.remove('hidden');
-                              isAnimating = false;
-                          }, 400);
-                          break;
-                  }
-                  currentSequence = (currentSequence + 1) % sequenceActions.length;
-              };
+             // --- Animation Sequence Controller ---
+             const runAutoSequence = () => {
+                 if (isAnimating) return;
+                 const action = sequenceActions[currentSequence];
+                 switch (action) {
+                     case 'scramble': textScramble(textEl); break;
+                     case 'logo':
+                         isAnimating = true;
+                         logoEl.classList.add('reacting');
+                         logoEl.addEventListener('animationend', () => { logoEl.classList.remove('reacting'); isAnimating = false; }, { once: true });
+                         break;
+                     case 'youtube':
+                         isAnimating = true;
+                         mainContentEl.classList.add('hidden');
+                         setTimeout(() => {
+                             followContentEl.classList.remove('hidden');
+                             typewriter(followMessageEl, "Follow on YouTube");
+                         }, 400);
+                         break;
+                     case 'tiktok': 
+                         typewriter(followMessageEl, "Follow on TikTok"); 
+                         break;
+                     case 'reset':
+                         isAnimating = true;
+                         followContentEl.classList.add('hidden');
+                         setTimeout(() => {
+                             mainContentEl.classList.remove('hidden');
+                             isAnimating = false;
+                         }, 400);
+                         break;
+                 }
+                 currentSequence = (currentSequence + 1) % sequenceActions.length;
+             };
 
-              const startAutoPlay = () => {
-                  if (autoPlayInterval) clearInterval(autoPlayInterval);
-                  runAutoSequence();
-                  autoPlayInterval = setInterval(runAutoSequence, 3500);
-              };
-              
-              // Add a click listener to toggle light/dark mode for demonstration
-              watermarkEl.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent link navigation on simple click
-                watermarkEl.classList.toggle('light-mode'); 
-              });
-              
-              // --- Initialization ---
-              const init = () => {
-                  resizeCanvas();
-                  for (let i = 0; i < 40; i++) particles.push(new Particle());
-                  animateParticles();
-                  window.addEventListener('resize', resizeCanvas);
-                  startAutoPlay();
-              };
-              init();
-          }
+             const startAutoPlay = () => {
+                 if (autoPlayInterval) clearInterval(autoPlayInterval);
+                 runAutoSequence();
+                 autoPlayInterval = setInterval(runAutoSequence, 3500);
+             };
+             
+             // Add a click listener to toggle light/dark mode for demonstration
+             watermarkEl.addEventListener('click', (e) => {
+               e.preventDefault(); // Prevent link navigation on simple click
+               watermarkEl.classList.toggle('light-mode'); 
+             });
+             
+             // --- Initialization ---
+             const init = () => {
+                 resizeCanvas();
+                 for (let i = 0; i < 40; i++) particles.push(new Particle());
+                 animateParticles();
+                 window.addEventListener('resize', resizeCanvas);
+                 startAutoPlay();
+             };
+             init();
+         }
 
-          // Ensure the script runs after the DOM is ready
-          if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', initializeWatermark);
-          } else {
-              initializeWatermark();
-          }
-      })();
+         // Ensure the script runs after the DOM is ready
+         if (document.readyState === 'loading') {
+             document.addEventListener('DOMContentLoaded', initializeWatermark);
+         } else {
+             initializeWatermark();
+         }
+     })();
     </script>
 </body>
 </html>
