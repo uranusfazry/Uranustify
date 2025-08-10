@@ -63,3 +63,14 @@
 ##  Kesimpulan
 
 Uranustify adalah solusi ideal untuk siapa saja yang menginginkan kemudahan dan kebebasan dalam menikmati musik. Tanpa perlu akun, tanpa iklan, tanpa biaya—semua disuguhkan lewat platform web yang cepat, ringan, dan intuitif. Baik untuk mendengarkan secara online maupun offline, Uranustify siap menjadi teman setia penggemar musik sejati.
+
+---
+
+_### Pengembangan Lebih Lanjut (Opsional):_  
+Jika tersedia, kamu bisa tambahkan:
+
+- Tautan ke repositori GitHub (jika proyek ini bersifat open-source).  
+- Teknologi yang digunakan (misal: framework, pustaka, layanan hosting).  
+- Panduan konfigurasi lokal, build, dan deployment untuk pengembang lain.
+
+Semoga README ini membantu menyajikan Uranustify dengan profesional dan menarik!11
