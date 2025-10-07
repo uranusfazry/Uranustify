@@ -31,6 +31,60 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
+        
+        /* Interstitial Ad Styles */
+        .interstitial-ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .interstitial-ad-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .interstitial-ad-container {
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .interstitial-ad-overlay.visible .interstitial-ad-container {
+             transform: scale(1);
+        }
+
+        .close-ad-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10000;
+        }
+
 
         /* Header Mobile - Bottom Nav Style */
         .mobile-header {
@@ -485,9 +539,36 @@
             border-radius: 16px;
             margin-bottom: 16px;
         }
+        
+        /* Ad Container Styling */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Full Screen Interstitial Ad -->
+    <div class="interstitial-ad-overlay" id="interstitialAd">
+        <div class="interstitial-ad-container">
+            <button class="close-ad-btn" id="closeAdBtn">×</button>
+            <!-- Interstitial ad code goes here. Using 300x250 as an example -->
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '0bc74e2c67be55a9039b48377a7a679b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/0bc74e2c67be55a9039b48377a7a679b/invoke.js"></script>
+        </div>
+    </div>
+
+
     <!-- Header -->
     <header class="mobile-header">
         <div class="header-content">
@@ -522,6 +603,21 @@
             </div>
         </section>
 
+        <!-- AD: 300x250 -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '0bc74e2c67be55a9039b48377a7a679b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/0bc74e2c67be55a9039b48377a7a679b/invoke.js"></script>
+        </div>
+
+
         <!-- Features Section -->
         <section class="section" id="fitur">
             <div class="section-header reveal">
@@ -547,6 +643,21 @@
                 <p class="card-text">Dioptimalkan untuk semua perangkat, bahkan HP kentang.</p>
             </div>
         </section>
+
+        <!-- AD: 160x300 -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '2989cad84c5b18d37d2cba584a1e5417',
+                    'format' : 'iframe',
+                    'height' : 300,
+                    'width' : 160,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/2989cad84c5b18d37d2cba584a1e5417/invoke.js"></script>
+        </div>
+
 
         <!-- Problem Section -->
         <section class="section">
@@ -598,6 +709,21 @@
                 <p class="card-text">Lancar di semua perangkat, dari kentang sampai flagship.</p>
             </div>
         </section>
+
+        <!-- AD: 160x600 -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '3119a9cf8ba7c53d4ebb38df925ad9ba',
+                    'format' : 'iframe',
+                    'height' : 600,
+                    'width' : 160,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/3119a9cf8ba7c53d4ebb38df925ad9ba/invoke.js"></script>
+        </div>
+        
 
         <!-- Mode Section -->
         <section class="section" id="mode">
@@ -697,6 +823,27 @@
                 <div class="stars">★★★★★</div>
             </div>
         </section>
+        
+        <!-- AD: NativeBanner -->
+        <div class="ad-container">
+            <script async="async" data-cfasync="false" src="//librarysituation.com/c07154ef4e53742e0eb93d443a1c7d1d/invoke.js"></script>
+            <div id="container-c07154ef4e53742e0eb93d443a1c7d1d"></div>
+        </div>
+
+        <!-- AD: 728x90 -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'a80ead840406310b793792390c9c5015',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/a80ead840406310b793792390c9c5015/invoke.js"></script>
+        </div>
+
 
         <!-- CTA Section -->
         <section class="section" id="download">
@@ -714,6 +861,20 @@
 
     <!-- Footer -->
     <footer>
+         <!-- AD: 468x60 -->
+        <div class="ad-container">
+           <script type="text/javascript">
+                atOptions = {
+                    'key' : '07e8bb6717e0d43c91e92e4575838c3c',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/07e8bb6717e0d43c91e92e4575838c3c/invoke.js"></script>
+        </div>
+
         <div class="footer-logo logo">
             <img src="https://i.imghippo.com/files/tnTh9480zPA.png" alt="Uranustify" class="logo-img">
             <span class="logo-text">Uranustify</span>
@@ -735,6 +896,21 @@
 
         <p class="copyright">© 2025 Uranustify. All rights reserved.</p>
     </footer>
+    
+    <!-- AD: 320x50 -->
+    <div class="ad-container" style="padding-bottom: 70px;"> <!-- Added padding to avoid overlap with bottom nav -->
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'd9e24f7cd3dccb5b9ab293b58f137c39',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//librarysituation.com/d9e24f7cd3dccb5b9ab293b58f137c39/invoke.js"></script>
+    </div>
+
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
@@ -757,6 +933,24 @@
     </nav>
 
     <script>
+        // Interstitial Ad Logic
+        const interstitialAd = document.getElementById('interstitialAd');
+        const closeAdBtn = document.getElementById('closeAdBtn');
+
+        // Show ad only once per session
+        if (!sessionStorage.getItem('adShown')) {
+            // Delay showing the ad slightly to allow page to load
+            setTimeout(() => {
+                interstitialAd.classList.add('visible');
+                sessionStorage.setItem('adShown', 'true');
+            }, 500);
+        }
+
+        closeAdBtn.addEventListener('click', () => {
+            interstitialAd.classList.remove('visible');
+        });
+
+
         // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -830,5 +1024,13 @@
             });
         });
     </script>
+    
+    <!-- AD: Popunder -->
+    <script type='text/javascript' src='//librarysituation.com/72/b5/9c/72b59c9ddab4907d8597cf268f822efa.js'></script>
+    
+    <!-- AD: SocialBar -->
+    <script type='text/javascript' src='//librarysituation.com/da/4a/ce/da4ace4bbcbd089e0d41b47a4ee13d61.js'></script>
+
 </body>
 </html>
+
